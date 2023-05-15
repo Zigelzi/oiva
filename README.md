@@ -18,7 +18,20 @@ Oiva is game about cleaning the walkway from the incorrectly parked eScooters. B
 
 ### Gameplay
 
-- [ ] Player can't exit the play area
-- [ ] Player can pick up a scooter
-- [ ] Player can move with the scooter
-- [ ] Player can deliver the scooter
+- [x] Player can't exit the play area
+- [x] Player can pick up a scooter
+- [x] Player can move with the scooter
+- [x] Player can deliver the scooter
+- [x] Camera follows the player
+- [ ] Player needs to deliver multiple scooters to finish the level
+
+### Obstacles
+
+- [ ] Closed door
+- [ ] Street with cars
+- [ ] Stairs
+
+### Scenes
+
+- [ ] Player can advance to next level when successfully parking all scooters
+- [ ]
