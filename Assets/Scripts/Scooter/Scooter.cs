@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Oiva.Scooter
@@ -8,21 +6,32 @@ namespace Oiva.Scooter
     {
         [SerializeField] Vector3 _followOffset;
         Transform _owner;
+        bool _isParked = false;
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
-                
-                PickUp(other.gameObject.transform);
+
+                AssignOwner(other.gameObject.transform);
             }
         }
 
         private void Update()
         {
-            Follow();
+            if (!_isParked)
+            {
+                Follow();
+            }
         }
 
-        private void PickUp(Transform newOwner)
+        public void Park()
+        {
+            _owner = null;
+            _isParked = true;
+        }
+
+        private void AssignOwner(Transform newOwner)
         {
             _owner = newOwner;
         }

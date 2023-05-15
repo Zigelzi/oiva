@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 namespace Oiva.Control
@@ -61,7 +59,7 @@ namespace Oiva.Control
 
             Quaternion lookRotation = Quaternion.LookRotation(-relativePosition, Vector3.up);
             transform.rotation = lookRotation;
-            
+
         }
 
 
