@@ -6,7 +6,6 @@ namespace Oiva.Control
     {
         [SerializeField] float _speed = 5f;
         [SerializeField] float _maxSpeed = 6f;
-
         PlayerInputActions _playerInputActions;
         InputAction _movementInput;
         Rigidbody _rb;
@@ -35,6 +34,7 @@ namespace Oiva.Control
         {
             Move();
             LookForward();
+            UpdateAnimation();
         }
 
         private void OnDisable()
@@ -59,6 +59,19 @@ namespace Oiva.Control
 
             LimitToMaxSpeed();
         }
+        private Vector3 GetCameraForward()
+        {
+            Vector3 cameraForward = Camera.main.transform.forward;
+            cameraForward.y = 0;
+            return cameraForward.normalized;
+        }
+
+        private Vector3 GetCameraRight()
+        {
+            Vector3 cameraRight = Camera.main.transform.right;
+            cameraRight.y = 0;
+            return cameraRight.normalized;
+        }
 
         private void LimitToMaxSpeed()
         {
@@ -80,19 +93,15 @@ namespace Oiva.Control
 
         }
 
-        private Vector3 GetCameraForward()
+        void UpdateAnimation()
         {
-            Vector3 cameraForward = Camera.main.transform.forward;
-            cameraForward.y = 0;
-            return cameraForward.normalized;
-        }
+            Animator playerAnimator = GetComponent<Animator>();
+            Vector3 playerVelocity = _rb.velocity;
+            Vector3 localVelocity = transform.InverseTransformDirection(playerVelocity);
+            float currentSpeed = localVelocity.z;
 
-        private Vector3 GetCameraRight()
-        {
-            Vector3 cameraRight = Camera.main.transform.right;
-            cameraRight.y = 0;
-            return cameraRight.normalized;
-        }
+            playerAnimator.SetFloat("forwardSpeed", currentSpeed);
 
+        }
     }
 }
