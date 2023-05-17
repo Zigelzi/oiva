@@ -5,11 +5,14 @@ namespace Oiva.Control
     public class Movement : MonoBehaviour
     {
         [SerializeField] float _speed = 5f;
+        [SerializeField] float _maxSpeed = 6f;
+
         PlayerInputActions _playerInputActions;
         InputAction _movementInput;
         Rigidbody _rb;
 
-        Vector3 _inputValue = new Vector3();
+        Vector3 _inputValue = Vector3.zero;
+        Vector3 _movementForce = Vector3.zero;
 
         private void Awake()
         {
@@ -48,8 +51,23 @@ namespace Oiva.Control
         {
             if (_rb == null) return;
 
-            Vector3 newPosition = transform.position + _inputValue * _speed * Time.deltaTime;
-            _rb.MovePosition(newPosition);
+            _movementForce += _inputValue.x * GetCameraRight() * _speed;
+            _movementForce += _inputValue.z * GetCameraForward() * _speed;
+
+            _rb.AddForce(_movementForce, ForceMode.Impulse);
+            _movementForce = Vector3.zero;
+
+            LimitToMaxSpeed();
+        }
+
+        private void LimitToMaxSpeed()
+        {
+            Vector3 playerVelocity = _rb.velocity;
+            playerVelocity.y = 0;
+            if (playerVelocity.sqrMagnitude > _maxSpeed * _maxSpeed)
+            {
+                _rb.velocity = playerVelocity.normalized * _maxSpeed + Vector3.up * _rb.velocity.y;
+            }
         }
 
         private void LookForward()
@@ -62,7 +80,19 @@ namespace Oiva.Control
 
         }
 
+        private Vector3 GetCameraForward()
+        {
+            Vector3 cameraForward = Camera.main.transform.forward;
+            cameraForward.y = 0;
+            return cameraForward.normalized;
+        }
 
+        private Vector3 GetCameraRight()
+        {
+            Vector3 cameraRight = Camera.main.transform.right;
+            cameraRight.y = 0;
+            return cameraRight.normalized;
+        }
 
     }
 }
