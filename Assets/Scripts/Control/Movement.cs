@@ -1,11 +1,14 @@
+using Oiva.Scooter;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 namespace Oiva.Control
 {
     public class Movement : MonoBehaviour
     {
         [SerializeField] float _speed = 5f;
         [SerializeField] float _maxSpeed = 6f;
+        ParkingSpot _parkingSpot;
         PlayerInputActions _playerInputActions;
         InputAction _movementInput;
         Rigidbody _rb;
@@ -17,12 +20,15 @@ namespace Oiva.Control
         {
             _playerInputActions = new PlayerInputActions();
             _rb = GetComponent<Rigidbody>();
+            _parkingSpot = _parkingSpot = GameObject.FindGameObjectWithTag("Parking_Spot").GetComponent<ParkingSpot>();
         }
 
         private void OnEnable()
         {
             _movementInput = _playerInputActions.Player.Move;
             _movementInput.Enable();
+
+            _parkingSpot.onAllScootersParked.AddListener(DisableMovement);
         }
 
         private void Update()
@@ -40,6 +46,14 @@ namespace Oiva.Control
         private void OnDisable()
         {
             _movementInput.Disable();
+            _parkingSpot.onAllScootersParked.RemoveListener(DisableMovement);
+        }
+
+        private void DisableMovement()
+        {
+            _rb.velocity = Vector3.zero;
+            UpdateAnimation();
+            enabled = false;
         }
 
         private void GetInput()
