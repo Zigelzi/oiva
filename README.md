@@ -39,3 +39,10 @@ Primary aesthetics are discovery and challenge.
 ### Scenes
 
 - [x] Player can advance to next level when successfully parking all scooters
+
+### Bugs
+
+- [ ] Player slides sometimes when moving
+- [ ] All scooters are placed into the same position
+- [ ] Scooters aren't positioned correctly when carried
+- [ ]
