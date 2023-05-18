@@ -1,18 +1,29 @@
 # Oiva - Clean the scooters
 
-Oiva is game about cleaning the walkway from the incorrectly parked eScooters. Because those are a nuisance.
+Oiva is game about finding electrical scooters parked in all odd places and bringing them back to the correct place.
+
+## Player experience (MDA)
+
+Player feels like they're constantly finding scooters in surprising and exhilarating places in a cheerful and playful world. Player feels that they're playing as friendly local person who just wants some order in the world.
+
+Primary aesthetics are discovery and challenge.
+
+### Core assumptions
+
+1. Searching and finding scooters create experience of discovery
+2. Searching scooters create experience of challenge
 
 ## Core gameplay
 
-**Player goal:** Deliver all scooters to parking area.
+**Player goal:** Discover all the scooters and deliver them to the parking spot
 
 **Core gameplay loop:**
 
-1. Level starts with X number of unparked scooters, player and a parking area
-2. Player finds a route to a scooter
-3. Player picks up a scooter
-4. Player delivers the scooter to parking spot
-5. Player is rewarded
+1. Level starts with X number of scooters
+2. Player searches for scooter
+3. Player finds the scooter
+4. Player parks the scooter
+5. Repeat
 
 ## TODO
 
@@ -25,13 +36,6 @@ Oiva is game about cleaning the walkway from the incorrectly parked eScooters. B
 - [x] Camera follows the player
 - [ ] Player needs to deliver multiple scooters to finish the level
 
-### Obstacles
-
-- [ ] Closed door
-- [ ] Street with cars
-- [ ] Stairs
-
 ### Scenes
 
-- [ ] Player can advance to next level when successfully parking all scooters
-- [ ]
+- [x] Player can advance to next level when successfully parking all scooters
