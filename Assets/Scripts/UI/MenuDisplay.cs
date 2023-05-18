@@ -45,6 +45,7 @@ namespace Oiva.UI
             }
 
             _canvasGroup.interactable = isEnabled;
+            _canvasGroup.blocksRaycasts = isEnabled;
         }
     }
 }
