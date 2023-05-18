@@ -1,3 +1,4 @@
+using Oiva.Discovery;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -36,7 +37,10 @@ namespace Oiva.Control
             float distanceToHideout = Vector3.Distance(transform.position, hit.collider.transform.position);
             if (distanceToHideout <= _maxInteractionDistance)
             {
-                Debug.Log($"Interacting with {hit.collider.gameObject.name}!");
+                if (hit.collider.TryGetComponent<Hideout>(out Hideout hideout))
+                {
+                    hideout.SpawnScooter();
+                }
             }
         }
     }
