@@ -1,3 +1,4 @@
+using Oiva.Discovery;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,6 +17,8 @@ namespace Oiva.Scooter
         private void Awake()
         {
             _totalScooters = FindObjectsOfType<Scooter>().Length;
+            _totalScooters += FindObjectsOfType<Hideout>().Length;
+
         }
 
         private void OnTriggerEnter(Collider other)
