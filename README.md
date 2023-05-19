@@ -42,7 +42,7 @@ Primary aesthetics are discovery and challenge.
 
 ### Bugs
 
-- [ ] Player slides sometimes when moving
-- [ ] All scooters are placed into the same position
+- [x] Player slides sometimes when moving
+- [x] All scooters are placed into the same position
 - [ ] Scooters aren't positioned correctly when carried
 - [x] Player can carry multiple scooter at once
