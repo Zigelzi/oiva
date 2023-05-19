@@ -34,7 +34,7 @@ Primary aesthetics are discovery and challenge.
 - [x] Player can move with the scooter
 - [x] Player can deliver the scooter
 - [x] Camera follows the player
-- [ ] Player needs to deliver multiple scooters to finish the level
+- [x] Player needs to deliver multiple scooters to finish the level
 
 ### Scenes
 
@@ -45,4 +45,4 @@ Primary aesthetics are discovery and challenge.
 - [ ] Player slides sometimes when moving
 - [ ] All scooters are placed into the same position
 - [ ] Scooters aren't positioned correctly when carried
-- [ ]
+- [x] Player can carry multiple scooter at once

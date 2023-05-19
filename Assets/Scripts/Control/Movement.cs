@@ -1,4 +1,4 @@
-using Oiva.Scooter;
+using Oiva.Discovery;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

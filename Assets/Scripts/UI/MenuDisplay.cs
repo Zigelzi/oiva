@@ -1,4 +1,4 @@
-using Oiva.Scooter;
+using Oiva.Discovery;
 using UnityEngine;
 
 namespace Oiva.UI

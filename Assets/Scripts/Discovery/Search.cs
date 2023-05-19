@@ -1,8 +1,7 @@
-using Oiva.Discovery;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Oiva.Control
+namespace Oiva.Discovery
 {
     public class Search : MonoBehaviour
     {

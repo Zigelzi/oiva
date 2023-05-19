@@ -1,8 +1,7 @@
-using Oiva.Discovery;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Oiva.Scooter
+namespace Oiva.Discovery
 {
     public class ParkingSpot : MonoBehaviour
     {
@@ -21,19 +20,10 @@ namespace Oiva.Scooter
 
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.TryGetComponent<Scooter>(out Scooter scooter))
-            {
-                Park(scooter);
-            }
-        }
-
-        private void Park(Scooter scooter)
+        public void Add(Scooter scooter)
         {
             if (_parkStart == null) return;
 
-            scooter.Park();
             scooter.transform.SetParent(_parkStart);
             scooter.transform.position = _parkStart.position;
             scooter.transform.rotation = _parkStart.rotation;
