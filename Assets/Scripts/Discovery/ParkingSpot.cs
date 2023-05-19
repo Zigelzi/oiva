@@ -24,8 +24,9 @@ namespace Oiva.Discovery
         {
             if (_parkStart == null) return;
 
+            Vector3 parkingPosition = _parkStart.position + _parkedScooters * Vector3.left;
             scooter.transform.SetParent(_parkStart);
-            scooter.transform.position = _parkStart.position;
+            scooter.transform.position = parkingPosition;
             scooter.transform.rotation = _parkStart.rotation;
 
             _parkedScooters++;
@@ -34,7 +35,6 @@ namespace Oiva.Discovery
             if (_parkedScooters >= _totalScooters)
             {
                 onAllScootersParked?.Invoke();
-                Debug.Log("All scooters parked!");
             }
         }
     }
