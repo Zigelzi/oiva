@@ -25,6 +25,16 @@ Primary aesthetics are discovery and challenge.
 4. Player parks the scooter
 5. Repeat
 
+### Level progression
+
+How mechanics are introduced to the player.
+
+1. You can pick up scooters and you need to deliver them to parking spot
+2. There can be multiple scooters that you need to deliver
+3. Scooters can be hidden to hideouts
+4. Hideouts can look different
+5. Scooters can be hidden out of sight
+
 ## TODO
 
 ### Gameplay
@@ -35,6 +45,9 @@ Primary aesthetics are discovery and challenge.
 - [x] Player can deliver the scooter
 - [x] Camera follows the player
 - [x] Player needs to deliver multiple scooters to finish the level
+- [ ] Player consumes energy when moving
+- [ ] Player consumes additional energy when carrying scooter
+- [ ] Player can get hint of hideout
 
 ### Scenes
 
@@ -46,3 +59,5 @@ Primary aesthetics are discovery and challenge.
 - [x] All scooters are placed into the same position
 - [ ] Scooters aren't positioned correctly when carried
 - [x] Player can carry multiple scooter at once
+- [ ] Player slides in the beginning of second level in built version
+- [ ]

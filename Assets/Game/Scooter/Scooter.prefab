@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a8b06d96eb48c47b8556fb89c3ee74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _followOffset: {x: 0.65, y: 0, z: 0}
+  _followOffset: {x: 0.8, y: 0, z: 0}
 --- !u!65 &6807054213755980501
 BoxCollider:
   m_ObjectHideFlags: 0
