@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level3_BusStop.unity
     guid: ad052ed12fd7ea7499e96f4fd0278dad
+  - enabled: 1
+    path: Assets/Scenes/Level4_Shopping_Center.unity
+    guid: 68a2e943c43db7f48a7aa14fc9cac9d9
   m_configObjects: {}
