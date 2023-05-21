@@ -33,6 +33,7 @@ namespace Oiva.Discovery
             if (_owner == null) return;
 
             transform.position = _owner.position + _followOffset;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
