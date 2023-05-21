@@ -12,6 +12,7 @@ Primary aesthetics are discovery and challenge.
 
 1. Searching and finding scooters create experience of discovery
 2. Searching scooters create experience of challenge
+3. Players like varying areas and puzzles
 
 ## Core gameplay
 
