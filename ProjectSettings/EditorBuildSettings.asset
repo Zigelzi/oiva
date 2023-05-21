@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1_Flat.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/ScenLeve2_Multiple_Scooters.unity
+    path: Assets/Scenes/Level2_Multiple_Scooters.unity
     guid: 718b3088ba8bbf34a86667efadcdae7a
+  - enabled: 1
+    path: Assets/Scenes/Level3_BusStop.unity
+    guid: ad052ed12fd7ea7499e96f4fd0278dad
   m_configObjects: {}

@@ -24,7 +24,7 @@ namespace Oiva.Discovery
         {
             if (_parkStart == null) return;
 
-            Vector3 parkingPosition = _parkStart.position + _parkedScooters * Vector3.left;
+            Vector3 parkingPosition = _parkStart.position + _parkedScooters * Vector3.right;
             scooter.transform.SetParent(_parkStart);
             scooter.transform.position = parkingPosition;
             scooter.transform.rotation = _parkStart.rotation;
