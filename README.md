@@ -49,10 +49,12 @@ How mechanics are introduced to the player.
 - [ ] Player consumes energy when moving
 - [ ] Player consumes additional energy when carrying scooter
 - [ ] Player can get hint of hideout
+- [ ] Player can get visual reward when delivering scooter
 
 ### Scenes
 
 - [x] Player can advance to next level when successfully parking all scooters
+- [ ] Success scene is displyed after a short delay
 
 ### Camera
 

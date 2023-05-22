@@ -10,6 +10,7 @@ namespace Oiva.Control
         [SerializeField] float _maxSpeed = 6f;
         ParkingSpot _parkingSpot;
         PlayerInputActions _playerInputActions;
+        Animator _playerAnimator;
         InputAction _movementInput;
         Rigidbody _rb;
 
@@ -19,9 +20,12 @@ namespace Oiva.Control
         private void Awake()
         {
             _playerInputActions = new PlayerInputActions();
+            _playerAnimator = GetComponent<Animator>();
             _rb = GetComponent<Rigidbody>();
             _parkingSpot = _parkingSpot = GameObject.FindGameObjectWithTag("Parking_Spot").GetComponent<ParkingSpot>();
         }
+
+
 
         private void OnEnable()
         {
@@ -109,12 +113,11 @@ namespace Oiva.Control
 
         void UpdateAnimation()
         {
-            Animator playerAnimator = GetComponent<Animator>();
             Vector3 playerVelocity = _rb.velocity;
             Vector3 localVelocity = transform.InverseTransformDirection(playerVelocity);
             float currentSpeed = localVelocity.z;
 
-            playerAnimator.SetFloat("forwardSpeed", currentSpeed);
+            _playerAnimator.SetFloat("forwardSpeed", currentSpeed);
 
         }
     }

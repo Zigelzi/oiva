@@ -21,3 +21,11 @@ What player knows and learns during the levels.
 9. You can't walk over street
 10. You can't move walls
 11. You can't move objects
+
+### AHA moments
+
+What discoveries the player make during the gameplay?
+
+1. AHA! I can find scooters from out of sights sometimes!
+2. AHA! I can find scooters from hidden places sometimes!
+3. AHA! Hidden places are highlighted by scooter red!
