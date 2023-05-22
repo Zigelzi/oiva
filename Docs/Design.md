@@ -18,3 +18,6 @@ What player knows and learns during the levels.
 6. You might need to deliver multiple scooters to parking spot
 7. Scooters can be behind buildings or structures
 8. Scooters can be hidden in hideouts
+9. You can't walk over street
+10. You can't move walls
+11. You can't move objects

@@ -54,6 +54,11 @@ How mechanics are introduced to the player.
 
 - [x] Player can advance to next level when successfully parking all scooters
 
+### Camera
+
+- [ ] Player can zoom out to view the big picture
+- [ ] Player can zoom in to look for the details
+
 ### Bugs
 
 - [x] Player slides sometimes when moving
