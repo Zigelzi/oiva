@@ -47,6 +47,7 @@ How mechanics are introduced to the player.
 - [x] Camera follows the player
 - [x] Player needs to deliver multiple scooters to finish the level
 - [ ] Player can get visual reward when delivering scooter
+- [ ] Scooters aren't positioned correctly when carried
 
 ### Challenge
 
@@ -69,7 +70,6 @@ How mechanics are introduced to the player.
 
 - [x] Player slides sometimes when moving
 - [x] All scooters are placed into the same position
-- [ ] Scooters aren't positioned correctly when carried
 - [x] Player can carry multiple scooter at once
-- [ ] Player slides in the beginning of second level in built version
+- [x] Player slides in the beginning of second level in built version
 - [ ]
