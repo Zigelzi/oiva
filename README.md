@@ -46,20 +46,24 @@ How mechanics are introduced to the player.
 - [x] Player can deliver the scooter
 - [x] Camera follows the player
 - [x] Player needs to deliver multiple scooters to finish the level
+- [ ] Player can get visual reward when delivering scooter
+
+### Challenge
+
 - [ ] Player consumes energy when moving
 - [ ] Player consumes additional energy when carrying scooter
+
+### Discovery & surprise
+
 - [ ] Player can get hint of hideout
-- [ ] Player can get visual reward when delivering scooter
+- [ ] Scooters fly out from the hideout
+- [ ] Player can zoom out to view the big picture
+- [ ] Player can zoom in to look for the details
 
 ### Scenes
 
 - [x] Player can advance to next level when successfully parking all scooters
 - [ ] Success scene is displyed after a short delay
-
-### Camera
-
-- [ ] Player can zoom out to view the big picture
-- [ ] Player can zoom in to look for the details
 
 ### Bugs
 
