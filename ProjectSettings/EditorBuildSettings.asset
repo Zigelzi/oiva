@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level4_Shopping_Center.unity
     guid: 68a2e943c43db7f48a7aa14fc9cac9d9
+  - enabled: 1
+    path: Assets/Scenes/Level5_Park.unity
+    guid: 579a30c82f7791a4f995042bb3a4af36
   m_configObjects: {}
