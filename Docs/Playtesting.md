@@ -5,7 +5,7 @@ Notes from playtesting sessions with various people.
 ## May
 
 1. Players have hard time distinguishing where to return scooters when there's no cones next to it
-2. Players interact with hideout accidentally when moving
+2. ~~Players interact with hideout accidentally when moving~~
 3. Players aren't rewarded from completing the levels
    1. Long term goal to make city cleaner and reduce accidents?
 4. Players don't need to interact with the scooters to pick them up, making solving the puzzles easier

@@ -9,14 +9,20 @@ namespace Oiva.Discovery
         [SerializeField] float _maxInteractionDistance = 3.2f;
         [SerializeField] LayerMask _interactableLayers;
         Camera _mainCamera;
+        Rigidbody _rb;
         private void Awake()
         {
             _mainCamera = Camera.main;
+            _rb = GetComponent<Rigidbody>();
         }
 
         private void Update()
         {
+            bool isStill = Mathf.Approximately(_rb.velocity.sqrMagnitude, 0);
+
             if (!Touchscreen.current.primaryTouch.press.isPressed) return;
+            if (!isStill) return;
+
             Vector2 touchPosition = Touchscreen.current.primaryTouch.position.ReadValue();
             Ray ray = _mainCamera.ScreenPointToRay(touchPosition);
 
@@ -41,6 +47,13 @@ namespace Oiva.Discovery
                     hideout.SpawnScooter();
                 }
             }
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.blue;
+            Vector3 cubeSize = new Vector3(_maxInteractionDistance, _maxInteractionDistance, _maxInteractionDistance);
+            Gizmos.DrawCube(transform.position, cubeSize);
         }
     }
 }
