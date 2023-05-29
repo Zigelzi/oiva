@@ -481,6 +481,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1948285736}
     m_Modifications:
+    - target: {fileID: 3886262243745734334, guid: 786fe231e589bc84bb9be94184faab46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4533772235074699159, guid: 786fe231e589bc84bb9be94184faab46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4918585510611814877, guid: 786fe231e589bc84bb9be94184faab46,
         type: 3}
       propertyPath: m_RootOrder
@@ -540,6 +550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Parking_Spot_Small
+      objectReference: {fileID: 0}
+    - target: {fileID: 5072915723798742444, guid: 786fe231e589bc84bb9be94184faab46,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 786fe231e589bc84bb9be94184faab46, type: 3}
