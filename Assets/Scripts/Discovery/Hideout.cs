@@ -27,7 +27,9 @@ namespace Oiva.Discovery
             Vector3 playerVelocity = playerController.transform.GetComponent<Rigidbody>().velocity;
 
             bool isStill = Mathf.Approximately(playerVelocity.sqrMagnitude, 0);
-            if (distanceToPlayer <= _maxInteractionDistance && isStill)
+            if (distanceToPlayer <= _maxInteractionDistance &&
+                isStill &&
+                !_hasSpawnedScooter)
             {
                 SpawnScooter();
                 return true;

@@ -5,6 +5,7 @@ namespace Oiva.Control
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField] float _interactionRadius = .5f;
         private void Update()
         {
             if (InteractWithComponent()) return;
@@ -14,7 +15,7 @@ namespace Oiva.Control
         {
             if (!Touchscreen.current.primaryTouch.press.wasPressedThisFrame) return false;
 
-            RaycastHit[] hits = Physics.RaycastAll(GetTouchRay());
+            RaycastHit[] hits = Physics.SphereCastAll(GetTouchRay(), _interactionRadius);
 
             foreach (RaycastHit hit in hits)
             {
