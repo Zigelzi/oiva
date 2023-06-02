@@ -11,22 +11,21 @@ namespace Oiva.Control
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent<Scooter>(out Scooter scooter))
-            {
-                if (scooter.IsParked) return;
-                PickUp(scooter);
-            }
+            //if (other.TryGetComponent<Scooter>(out Scooter scooter))
+            //{
+            //    if (scooter.IsParked) return;
+            //    PickUp(scooter);
+            //}
 
             if (other.TryGetComponent<ParkingSpot>(out ParkingSpot parkingSpot))
             {
                 Park(parkingSpot);
             }
         }
-        private void PickUp(Scooter newScooter)
+        public void PickUp(Scooter newScooter)
         {
             if (_currentScooter != null) return;
             _currentScooter = newScooter;
-            newScooter.SetOwner(transform);
         }
 
         private void Park(ParkingSpot parkingSpot)
