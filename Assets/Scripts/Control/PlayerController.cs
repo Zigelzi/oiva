@@ -5,7 +5,6 @@ namespace Oiva.Control
 {
     public class PlayerController : MonoBehaviour
     {
-        // Update is called once per frame
         private void Update()
         {
             if (InteractWithComponent()) return;
@@ -13,6 +12,8 @@ namespace Oiva.Control
 
         private bool InteractWithComponent()
         {
+            if (!Touchscreen.current.primaryTouch.press.wasPressedThisFrame) return false;
+
             RaycastHit[] hits = Physics.RaycastAll(GetTouchRay());
 
             foreach (RaycastHit hit in hits)

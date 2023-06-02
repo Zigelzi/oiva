@@ -1,6 +1,5 @@
 using Oiva.Control;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Oiva.Discovery
 {
@@ -12,7 +11,7 @@ namespace Oiva.Discovery
 
         bool _hasSpawnedScooter = false;
 
-        public void SpawnScooter()
+        private void SpawnScooter()
         {
             if (_scooterPrefab == null || _spawnPosition == null) return;
 
@@ -25,14 +24,22 @@ namespace Oiva.Discovery
         public bool HandleRaycast(PlayerController playerController)
         {
             float distanceToPlayer = Vector3.Distance(playerController.transform.position, transform.position);
+            Vector3 playerVelocity = playerController.transform.GetComponent<Rigidbody>().velocity;
 
-            if (distanceToPlayer <= _maxInteractionDistance &&
-                Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
+            bool isStill = Mathf.Approximately(playerVelocity.sqrMagnitude, 0);
+            if (distanceToPlayer <= _maxInteractionDistance && isStill)
             {
-                Debug.Log("Interacted with hideout!");
+                SpawnScooter();
                 return true;
             }
             return false;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.blue;
+            Vector3 cubeSize = new Vector3(_maxInteractionDistance, _maxInteractionDistance, _maxInteractionDistance);
+            Gizmos.DrawWireCube(transform.position, cubeSize);
         }
     }
 }
