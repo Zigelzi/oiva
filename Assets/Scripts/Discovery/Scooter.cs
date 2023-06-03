@@ -6,7 +6,7 @@ namespace Oiva.Discovery
     public class Scooter : MonoBehaviour, IRaycastable
     {
         [SerializeField] Vector3 _followOffset;
-        [SerializeField] float _maxPickupDistance = 2f;
+        [SerializeField] float _maxPickupDistance = 2.5f;
         Transform _owner;
         bool _isParked = false;
 
@@ -28,6 +28,7 @@ namespace Oiva.Discovery
         public void Park()
         {
             _isParked = true;
+            GetComponent<Blinker>().StopBlinking();
         }
 
         public bool HandleRaycast(PlayerController playerController)

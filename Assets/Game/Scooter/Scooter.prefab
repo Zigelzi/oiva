@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _followOffset: {x: 0.8, y: 0, z: 0}
-  _maxPickupDistance: 2
+  _maxPickupDistance: 2.5
 --- !u!114 &1513475729517443929
 MonoBehaviour:
   m_ObjectHideFlags: 0

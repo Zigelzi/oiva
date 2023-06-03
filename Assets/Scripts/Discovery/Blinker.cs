@@ -9,14 +9,26 @@ namespace Oiva.Discovery
         [SerializeField] float _blinkDuration = 1f;
         [SerializeField] bool _isBlinking = true;
 
+        Coroutine _blinking;
+        Color _startColor;
+
+        private void Awake()
+        {
+            if (_indicator == null) return;
+
+            _startColor = _indicator.material.GetColor("_EmissionColor");
+        }
+
         private void Start()
         {
-            StartCoroutine(Blink());
+            _blinking = StartCoroutine(Blink());
         }
 
         public void StopBlinking()
         {
-            StopCoroutine(Blink());
+            StopCoroutine(_blinking);
+            Debug.Log("Stopping blinking");
+            _indicator.material.SetColor("_EmissionColor", _startColor);
         }
         private IEnumerator Blink()
         {
