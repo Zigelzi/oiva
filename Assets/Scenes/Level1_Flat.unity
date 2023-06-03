@@ -20,12 +20,12 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.09117647, g: 0.21470588, b: 0.051960785, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.47036314, g: 0.5405213, b: 0.6603774, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1443313545}
   m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -97,8 +97,10 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 8be4e50b81bfdde418e999219b5fad6b,
+    type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: d38dc575d7d1b9246a5fb34e2c042f14,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1334,10 +1336,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1335395435068402267, guid: caee5a951236049478e546c49b74e52b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382606284279830450, guid: caee5a951236049478e546c49b74e52b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5105236662279800171, guid: caee5a951236049478e546c49b74e52b,
         type: 3}
       propertyPath: m_Name
       value: Planter_Tree (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105236662279800171, guid: caee5a951236049478e546c49b74e52b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caee5a951236049478e546c49b74e52b, type: 3}
@@ -1881,6 +1898,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa41058fb41eaec44b772afcc77a7efe, type: 3}
+--- !u!108 &1443313545 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 6278082890888335452, guid: 7803e43517eb30e4f89ef39eede5697d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6278082891287772892}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1456547718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3114,10 +3137,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1335395435068402267, guid: caee5a951236049478e546c49b74e52b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382606284279830450, guid: caee5a951236049478e546c49b74e52b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5105236662279800171, guid: caee5a951236049478e546c49b74e52b,
         type: 3}
       propertyPath: m_Name
       value: Planter_Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105236662279800171, guid: caee5a951236049478e546c49b74e52b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caee5a951236049478e546c49b74e52b, type: 3}
@@ -3139,10 +3177,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Core_Gameplay
       objectReference: {fileID: 0}
+    - target: {fileID: 1131028460370387916, guid: 7803e43517eb30e4f89ef39eede5697d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.165
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442190300772435876, guid: 7803e43517eb30e4f89ef39eede5697d,
+        type: 3}
+      propertyPath: m_Range
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 2797349466328133569, guid: 7803e43517eb30e4f89ef39eede5697d,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 2797349466328133569, guid: 7803e43517eb30e4f89ef39eede5697d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.127
       objectReference: {fileID: 0}
     - target: {fileID: 2797349466328133569, guid: 7803e43517eb30e4f89ef39eede5697d,
         type: 3}

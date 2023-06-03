@@ -56,6 +56,13 @@ namespace Oiva.Discovery
             transform.position = _owner.position + _followOffset;
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.blue;
+            Vector3 cubeSize = new Vector3(_maxPickupDistance, _maxPickupDistance, _maxPickupDistance);
+            Gizmos.DrawWireSphere(transform.position, _maxPickupDistance);
+        }
     }
 
 }
