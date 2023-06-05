@@ -56,7 +56,7 @@ How mechanics are introduced to the player.
 
 ### Discovery & surprise
 
-- [ ] Player can get hint of hideout
+- [x] Player can get hint of hideout
 - [ ] Scooters fly out from the hideout
 - [ ] Player can zoom out to view the big picture
 - [ ] Player can zoom in to look for the details

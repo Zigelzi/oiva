@@ -2,6 +2,14 @@
 
 Random notes and thoughts about the game and it's design.
 
+## Player experience
+
+Sense of surprise. Player should feel the joy of discovering scooters from various places.
+
+## Problems
+
+Currently observed problems in the gameplay, that need to be solved.
+
 ## Player knowledge
 
 Player experience of discovery can be created by provoking players curiosity and sense of... Discovering something. This can be discovering new mechanic, new way to use an existing mechanic or new way to use the rules of the game to proceed.
