@@ -7,6 +7,15 @@ namespace Oiva.Discovery
     {
         [SerializeField] Vector3 _followOffset;
         [SerializeField] float _maxPickupDistance = 2.5f;
+        [SerializeField]
+        [Range(1, 100)] int _bounceProbability = 20;
+
+        [SerializeField] float _minVerticalForce = 30;
+        [SerializeField] float _maxVerticalForce = 80f;
+
+        [SerializeField] float _minHorizontalForce = 10f;
+        [SerializeField] float _maxHorizontalForce = 30f;
+
         Transform _owner;
         bool _isParked = false;
 
@@ -28,10 +37,26 @@ namespace Oiva.Discovery
         public void Park()
         {
             _isParked = true;
+            GetComponent<Rigidbody>().isKinematic = true;
             GetComponent<Blinker>().StopBlinking();
         }
 
         public bool HandleRaycast(PlayerController playerController)
+        {
+            Carrying carrying = playerController.transform.GetComponent<Carrying>();
+
+            if (!IsInteractable(playerController)) return false;
+
+            if (!TryBounce(playerController))
+            {
+                _owner = playerController.transform;
+                carrying.PickUp(this);
+            }
+
+            return true;
+        }
+
+        private bool IsInteractable(PlayerController playerController)
         {
             float distanceToPlayer = Vector3.Distance(playerController.transform.position, transform.position);
             Carrying carrying = playerController.transform.GetComponent<Carrying>();
@@ -43,10 +68,9 @@ namespace Oiva.Discovery
                 carrying.CurrentScooter == null &&
                 !_isParked)
             {
-                _owner = playerController.transform;
-                carrying.PickUp(this);
                 return true;
             }
+
             return false;
         }
 
@@ -58,10 +82,24 @@ namespace Oiva.Discovery
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
+        private bool TryBounce(PlayerController playerController)
+        {
+            int currentBounceAttempt = Random.Range(1, 101);
+            Rigidbody rb = GetComponent<Rigidbody>();
+            float xForceAmount = Random.Range(-_minHorizontalForce, _maxHorizontalForce);
+            float zForceAmount = Random.Range(-_minHorizontalForce, _maxHorizontalForce);
+            float yForceAmount = Random.Range(_minVerticalForce, _maxVerticalForce);
+            if (currentBounceAttempt <= _bounceProbability)
+            {
+                rb.AddForce(xForceAmount, yForceAmount, zForceAmount, ForceMode.Impulse);
+                return true;
+            }
+            return false;
+        }
+
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.blue;
-            Vector3 cubeSize = new Vector3(_maxPickupDistance, _maxPickupDistance, _maxPickupDistance);
             Gizmos.DrawWireSphere(transform.position, _maxPickupDistance);
         }
     }

@@ -140,11 +140,11 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3376001087183983962}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 15
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -162,6 +162,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _followOffset: {x: 0.8, y: 0, z: 0}
   _maxPickupDistance: 2.5
+  _bounceProbability: 35
+  _minVerticalForce: 60
+  _maxVerticalForce: 120
+  _minHorizontalForce: 10
+  _maxHorizontalForce: 30
 --- !u!114 &1513475729517443929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +182,7 @@ MonoBehaviour:
   _indicator: {fileID: 6539507397610032490}
   _blinkDuration: 1
   _isBlinking: 1
+  _blinkRate: 1.03
 --- !u!1 &3662177453071683172
 GameObject:
   m_ObjectHideFlags: 0
