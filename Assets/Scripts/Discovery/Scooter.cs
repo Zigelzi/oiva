@@ -7,14 +7,22 @@ namespace Oiva.Discovery
     {
         [SerializeField] Vector3 _followOffset;
         [SerializeField] float _maxPickupDistance = 2.5f;
+
+
         [SerializeField]
         [Range(1, 100)] int _bounceProbability = 20;
 
-        [SerializeField] float _minVerticalForce = 30;
-        [SerializeField] float _maxVerticalForce = 80f;
+        [SerializeField]
+        [Range(30, 300)] float _minVerticalForce = 30;
 
-        [SerializeField] float _minHorizontalForce = 10f;
-        [SerializeField] float _maxHorizontalForce = 30f;
+        [SerializeField]
+        [Range(100, 300)] float _maxVerticalForce = 80f;
+
+        [SerializeField]
+        [Range(30, 300)] float _minHorizontalForce = 10f;
+
+        [SerializeField]
+        [Range(100, 300)] float _maxHorizontalForce = 30f;
 
         Transform _owner;
         bool _isParked = false;

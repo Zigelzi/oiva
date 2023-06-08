@@ -19,16 +19,18 @@ Player experience of discovery can be created by provoking players curiosity and
 What player knows and learns during the levels.
 
 1. You can move in the level
-2. You need to move to scooter to take it with you
-3. You can move with the scooter
-4. You need to deliver the scooter to parking spot
-5. Scooter is always left to parking spot when moving over it
-6. You might need to deliver multiple scooters to parking spot
-7. Scooters can be behind buildings or structures
-8. Scooters can be hidden in hideouts
-9. You can't walk over street
-10. You can't move walls
-11. You can't move objects
+2. You can move scooters by walking towards them
+3. You need to click the scooter to pick it up
+4. Scooters can bounce when you click on them
+5. You can move with the scooter
+6. You need to deliver the scooter to parking spot
+7. Scooter is always left to parking spot when moving over it
+8. You need to deliver multiple scooters to parking spot
+9. Scooters can be behind buildings or structures
+10. Scooters can be hidden in hideouts
+11. You can't walk over street
+12. You can't move walls
+13. You can't move objects
 
 ### AHA moments
 

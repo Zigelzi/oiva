@@ -163,7 +163,7 @@ MonoBehaviour:
   _followOffset: {x: 0.8, y: 0, z: 0}
   _maxPickupDistance: 2.5
   _bounceProbability: 35
-  _minVerticalForce: 60
+  _minVerticalForce: 90
   _maxVerticalForce: 120
   _minHorizontalForce: 10
   _maxHorizontalForce: 30
