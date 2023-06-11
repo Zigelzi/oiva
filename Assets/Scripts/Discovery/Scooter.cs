@@ -53,6 +53,7 @@ namespace Oiva.Discovery
         {
             Carrying carrying = playerController.transform.GetComponent<Carrying>();
 
+
             if (!IsInteractable(playerController)) return false;
 
             if (!TryBounce(playerController))
@@ -68,8 +69,7 @@ namespace Oiva.Discovery
         {
             float distanceToPlayer = Vector3.Distance(playerController.transform.position, transform.position);
             Carrying carrying = playerController.transform.GetComponent<Carrying>();
-            Vector3 playerVelocity = playerController.transform.GetComponent<Rigidbody>().velocity;
-            bool isStill = Mathf.Approximately(playerVelocity.sqrMagnitude, 0);
+            bool isStill = playerController.GetComponent<Movement>().IsStill();
 
             if (distanceToPlayer <= _maxPickupDistance &&
                 isStill &&

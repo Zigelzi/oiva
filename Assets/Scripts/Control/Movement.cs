@@ -8,6 +8,7 @@ namespace Oiva.Control
     {
         [SerializeField] float _speed = 5f;
         [SerializeField] float _maxSpeed = 6f;
+        [SerializeField] float _movementTolerance = .2f;
         Energy _energy;
         ParkingSpot _parkingSpot;
         PlayerInputActions _playerInputActions;
@@ -60,6 +61,18 @@ namespace Oiva.Control
             _movementInput.Disable();
             _parkingSpot.onAllScootersParked.RemoveListener(DisableMovement);
             _energy.onEnergyExhausted.RemoveListener(DisableMovement);
+        }
+
+        public bool IsStill()
+        {
+            if (_rb == null) return false;
+
+            if (_rb.velocity.sqrMagnitude <= _movementTolerance)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private void DisableMovement()
@@ -120,7 +133,7 @@ namespace Oiva.Control
 
         }
 
-        void UpdateAnimation()
+        private void UpdateAnimation()
         {
             Vector3 playerVelocity = _rb.velocity;
             Vector3 localVelocity = transform.InverseTransformDirection(playerVelocity);
