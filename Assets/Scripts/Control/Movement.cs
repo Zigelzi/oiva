@@ -42,6 +42,11 @@ namespace Oiva.Control
 
         private void FixedUpdate()
         {
+            if (_inputValue == Vector3.zero)
+            {
+                _rb.velocity = Vector3.zero;
+            }
+
             Move();
             LookForward();
             UpdateAnimation();
