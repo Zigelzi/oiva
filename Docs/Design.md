@@ -10,6 +10,10 @@ Sense of surprise. Player should feel the joy of discovering scooters from vario
 
 Currently observed problems in the gameplay, that need to be solved.
 
+1. Players feel that parking scooters isn't rewarding.
+2. Players don't understand that they need to interact with hideout.
+3. Players spend long time seaching for where they need to park the scooters.
+
 ## Player knowledge
 
 Player experience of discovery can be created by provoking players curiosity and sense of... Discovering something. This can be discovering new mechanic, new way to use an existing mechanic or new way to use the rules of the game to proceed.
@@ -39,3 +43,13 @@ What discoveries the player make during the gameplay?
 1. AHA! I can find scooters from out of sights sometimes!
 2. AHA! I can find scooters from hidden places sometimes!
 3. AHA! Hidden places are highlighted by scooter red!
+
+## Loops
+
+### Stress
+
+### Relief
+
+### Reward
+
+### Progress
