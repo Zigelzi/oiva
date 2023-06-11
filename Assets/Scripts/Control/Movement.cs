@@ -8,6 +8,7 @@ namespace Oiva.Control
     {
         [SerializeField] float _speed = 5f;
         [SerializeField] float _maxSpeed = 6f;
+        Energy _energy;
         ParkingSpot _parkingSpot;
         PlayerInputActions _playerInputActions;
         Animator _playerAnimator;
@@ -19,6 +20,7 @@ namespace Oiva.Control
 
         private void Awake()
         {
+            _energy = GetComponent<Energy>();
             _playerInputActions = new PlayerInputActions();
             _playerAnimator = GetComponent<Animator>();
             _rb = GetComponent<Rigidbody>();
@@ -33,6 +35,7 @@ namespace Oiva.Control
             _movementInput.Enable();
 
             _parkingSpot.onAllScootersParked.AddListener(DisableMovement);
+            _energy.onEnergyExhausted.AddListener(DisableMovement);
         }
 
         private void Update()
@@ -56,6 +59,7 @@ namespace Oiva.Control
         {
             _movementInput.Disable();
             _parkingSpot.onAllScootersParked.RemoveListener(DisableMovement);
+            _energy.onEnergyExhausted.RemoveListener(DisableMovement);
         }
 
         private void DisableMovement()

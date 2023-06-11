@@ -33,7 +33,8 @@ namespace Oiva.Control
 
             if (_currentEnergy <= 0)
             {
-                Debug.Log("Player has ran out of energy!");
+                _currentEnergy = 0;
+                onEnergyChange?.Invoke(_currentEnergy);
                 onEnergyExhausted?.Invoke();
             }
         }
