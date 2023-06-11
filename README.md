@@ -51,7 +51,7 @@ How mechanics are introduced to the player.
 
 ### Challenge
 
-- [ ] Player consumes energy when moving
+- [x] Player consumes energy when moving
 - [ ] Player consumes additional energy when carrying scooter
 
 ### Discovery & surprise
@@ -60,11 +60,21 @@ How mechanics are introduced to the player.
 - [ ] Scooters fly out from the hideout
 - [ ] Player can zoom out to view the big picture
 - [ ] Player can zoom in to look for the details
+- [ ] Misc items fly from hideout when searched
+- [ ] Powerups fly from hideout when searched
+- [ ] Player gets buff after delivering scooter
+  - [ ] Speed boost
+  - [ ] Additional carry capacity
+  - [ ] Hint
+  - [ ] Restore energy
+- [ ] Player can interact with misc objects
+- [ ] Player can see indicator displaying proximity to scooters
 
 ### Scenes
 
 - [x] Player can advance to next level when successfully parking all scooters
 - [ ] Success scene is displyed after a short delay
+- [ ] Create level introducing hideout mechanic properly
 
 ### Bugs
 
