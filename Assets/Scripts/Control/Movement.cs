@@ -101,7 +101,7 @@ namespace Oiva.Control
         {
             float durationRemaining = _buffDuration;
 
-            _currentMaxSpeed += _additionalSpeed;
+            _currentMaxSpeed = _initialMaxSpeed + _additionalSpeed;
             while (durationRemaining >= 0)
             {
                 durationRemaining -= Time.deltaTime;
