@@ -48,8 +48,25 @@ What discoveries the player make during the gameplay?
 
 ### Stress
 
+1. Risk of running out of energy
+
 ### Relief
+
+1. Parking a scooter
 
 ### Reward
 
+1. Possiblity to restore energy
+2. Possibility to move faster
+3. Possibility to gather scooters without touching
+4. Possibility to carry multiple scooters (without energy and movement speed penalty?)
+
 ### Progress
+
+1. Total number of scooters collected
+2. City is cleaner
+3. More energy?
+4. Faster movement?
+5. Reduced carry penalty?
+   1. Speed
+   2. Energy consumption

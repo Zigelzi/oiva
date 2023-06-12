@@ -6,10 +6,19 @@ namespace Oiva.Control
 {
     public class Carrying : MonoBehaviour
     {
+        [SerializeField] float _movementPenalty = 3f;
         Scooter _currentScooter;
 
         public UnityEvent onScooterParked;
         public Scooter CurrentScooter { get { return _currentScooter; } }
+
+        // Prototyping
+        Movement _movement;
+
+        private void Awake()
+        {
+            _movement = GetComponent<Movement>();
+        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -23,6 +32,7 @@ namespace Oiva.Control
         {
             if (_currentScooter != null) return;
             _currentScooter = newScooter;
+            _movement.ReduceMovementSpeed(_movementPenalty);
         }
 
         private void Park(ParkingSpot parkingSpot)
@@ -32,6 +42,7 @@ namespace Oiva.Control
             parkingSpot.Add(_currentScooter);
             _currentScooter.Park();
             _currentScooter = null;
+            _movement.RestoreDefaultMovementSpeed();
             onScooterParked?.Invoke();
         }
 

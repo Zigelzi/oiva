@@ -102,7 +102,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 90
-  _maxSpeed: 6
+  _initialMaxSpeed: 6
+  _movementTolerance: 0.2
+  _buffDuration: 5
+  _additionalSpeed: 3
 --- !u!114 &7468454428627368171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f475f94ac79e8c42a2a0c222718c427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movementPenalty: 1.5
+  onScooterParked:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7614631950374544797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +150,13 @@ MonoBehaviour:
   _maxEnergy: 100
   _currentEnergy: -1
   _energyConsumption: 2
+  _movementTolerance: 0.2
+  onEnergyChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnergyExhausted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6338125710948056848
 GameObject:
   m_ObjectHideFlags: 0

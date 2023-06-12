@@ -53,6 +53,7 @@ How mechanics are introduced to the player.
 
 - [x] Player consumes energy when moving
 - [ ] Player consumes additional energy when carrying scooter
+- [x] Player is slowed down when carrying a scooter
 
 ### Discovery & surprise
 
@@ -61,14 +62,17 @@ How mechanics are introduced to the player.
 - [ ] Player can zoom out to view the big picture
 - [ ] Player can zoom in to look for the details
 - [ ] Misc items fly from hideout when searched
-- [ ] Powerups fly from hideout when searched
+- [ ] Pickups fly from hideout when searched
 - [ ] Player gets buff after delivering scooter
-  - [ ] Speed boost
+  - [x] Speed boost
   - [ ] Additional carry capacity
   - [ ] Hint
   - [ ] Restore energy
 - [ ] Player can interact with misc objects
 - [ ] Player can see indicator displaying proximity to scooters
+- [ ] Player can get movement speed pickup when parking a scooter
+- [ ] Player can get energy pickup when parking a scooter
+- [ ] Player can get super-carrying pickup when parking scooter
 
 ### Scenes
 

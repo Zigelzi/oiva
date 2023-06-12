@@ -72,6 +72,7 @@ namespace Oiva.Control
         {
             _movementInput.Disable();
 
+            _carrying.onScooterParked.RemoveListener(AddMoveSpeed);
             _energy.onEnergyExhausted.RemoveListener(DisableMovement);
             _parkingSpot.onAllScootersParked.RemoveListener(DisableMovement);
         }
@@ -86,6 +87,16 @@ namespace Oiva.Control
             }
 
             return false;
+        }
+
+        public void ReduceMovementSpeed(float amount)
+        {
+            _currentMaxSpeed -= amount;
+        }
+
+        public void RestoreDefaultMovementSpeed()
+        {
+            _currentMaxSpeed = _initialMaxSpeed;
         }
 
         private void AddMoveSpeed()
