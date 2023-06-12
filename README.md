@@ -74,6 +74,7 @@ How mechanics are introduced to the player.
 
 - [x] Player can advance to next level when successfully parking all scooters
 - [ ] Success scene is displyed after a short delay
+- [ ] Create level introducing the energy mechanic
 - [ ] Create level introducing hideout mechanic properly
 
 ### Bugs

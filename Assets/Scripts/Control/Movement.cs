@@ -1,4 +1,5 @@
 using Oiva.Discovery;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,8 +8,10 @@ namespace Oiva.Control
     public class Movement : MonoBehaviour
     {
         [SerializeField] float _speed = 5f;
-        [SerializeField] float _maxSpeed = 6f;
+        [SerializeField] float _initialMaxSpeed = 6f;
         [SerializeField] float _movementTolerance = .2f;
+
+        float _currentMaxSpeed = -1f;
         Energy _energy;
         ParkingSpot _parkingSpot;
         PlayerInputActions _playerInputActions;
@@ -19,8 +22,18 @@ namespace Oiva.Control
         Vector3 _inputValue = Vector3.zero;
         Vector3 _movementForce = Vector3.zero;
 
+        // Prototyping effects
+        // Refactor these to use strategy pattern if useful
+        [SerializeField] float _buffDuration = 5f;
+        [SerializeField] float _additionalSpeed = 3f;
+        Carrying _carrying;
+        Coroutine _currentMovementEffect;
+
         private void Awake()
         {
+            _currentMaxSpeed = _initialMaxSpeed;
+
+            _carrying = GetComponent<Carrying>();
             _energy = GetComponent<Energy>();
             _playerInputActions = new PlayerInputActions();
             _playerAnimator = GetComponent<Animator>();
@@ -28,15 +41,14 @@ namespace Oiva.Control
             _parkingSpot = _parkingSpot = GameObject.FindGameObjectWithTag("Parking_Spot").GetComponent<ParkingSpot>();
         }
 
-
-
         private void OnEnable()
         {
             _movementInput = _playerInputActions.Player.Move;
             _movementInput.Enable();
 
-            _parkingSpot.onAllScootersParked.AddListener(DisableMovement);
+            _carrying.onScooterParked.AddListener(AddMoveSpeed);
             _energy.onEnergyExhausted.AddListener(DisableMovement);
+            _parkingSpot.onAllScootersParked.AddListener(DisableMovement);
         }
 
         private void Update()
@@ -59,8 +71,9 @@ namespace Oiva.Control
         private void OnDisable()
         {
             _movementInput.Disable();
-            _parkingSpot.onAllScootersParked.RemoveListener(DisableMovement);
+
             _energy.onEnergyExhausted.RemoveListener(DisableMovement);
+            _parkingSpot.onAllScootersParked.RemoveListener(DisableMovement);
         }
 
         public bool IsStill()
@@ -73,6 +86,28 @@ namespace Oiva.Control
             }
 
             return false;
+        }
+
+        private void AddMoveSpeed()
+        {
+            if (_currentMovementEffect != null)
+            {
+                StopCoroutine(_currentMovementEffect);
+            }
+            _currentMovementEffect = StartCoroutine(GrantMoveSpeedEffect());
+        }
+
+        private IEnumerator GrantMoveSpeedEffect()
+        {
+            float durationRemaining = _buffDuration;
+
+            _currentMaxSpeed += _additionalSpeed;
+            while (durationRemaining >= 0)
+            {
+                durationRemaining -= Time.deltaTime;
+                yield return null;
+            }
+            _currentMaxSpeed = _initialMaxSpeed;
         }
 
         private void DisableMovement()
@@ -117,9 +152,9 @@ namespace Oiva.Control
         {
             Vector3 playerVelocity = _rb.velocity;
             playerVelocity.y = 0;
-            if (playerVelocity.sqrMagnitude > _maxSpeed * _maxSpeed)
+            if (playerVelocity.sqrMagnitude > _currentMaxSpeed * _currentMaxSpeed)
             {
-                _rb.velocity = playerVelocity.normalized * _maxSpeed + Vector3.up * _rb.velocity.y;
+                _rb.velocity = playerVelocity.normalized * _currentMaxSpeed + Vector3.up * _rb.velocity.y;
             }
         }
 

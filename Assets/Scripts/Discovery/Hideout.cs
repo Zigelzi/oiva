@@ -24,9 +24,8 @@ namespace Oiva.Discovery
         public bool HandleRaycast(PlayerController playerController)
         {
             float distanceToPlayer = Vector3.Distance(playerController.transform.position, transform.position);
-            Vector3 playerVelocity = playerController.transform.GetComponent<Rigidbody>().velocity;
 
-            bool isStill = Mathf.Approximately(playerVelocity.sqrMagnitude, 0);
+            bool isStill = playerController.GetComponent<Movement>().IsStill();
             if (distanceToPlayer <= _maxInteractionDistance &&
                 isStill &&
                 !_hasSpawnedScooter)

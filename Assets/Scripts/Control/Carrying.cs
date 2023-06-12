@@ -1,5 +1,6 @@
 using Oiva.Discovery;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Oiva.Control
 {
@@ -7,6 +8,7 @@ namespace Oiva.Control
     {
         Scooter _currentScooter;
 
+        public UnityEvent onScooterParked;
         public Scooter CurrentScooter { get { return _currentScooter; } }
 
         private void OnTriggerEnter(Collider other)
@@ -30,6 +32,7 @@ namespace Oiva.Control
             parkingSpot.Add(_currentScooter);
             _currentScooter.Park();
             _currentScooter = null;
+            onScooterParked?.Invoke();
         }
 
     }
