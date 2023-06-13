@@ -4,7 +4,8 @@ Random notes and thoughts about the game and it's design.
 
 ## Player experience
 
-Sense of surprise. Player should feel the joy of discovering scooters from various places.
+Sense of surprise. Player should feel the joy of discovering scooters and powerups from various places.
+Restore the order. Player should feel that they're making a the city a better place for other people by parking the scooters.
 
 ## Problems
 
