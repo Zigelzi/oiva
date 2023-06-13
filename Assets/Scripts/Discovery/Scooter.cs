@@ -53,7 +53,6 @@ namespace Oiva.Discovery
         {
             Carrying carrying = playerController.transform.GetComponent<Carrying>();
 
-            Debug.Log("Player tries to interact with scooter");
             if (!IsInteractable(playerController)) return false;
 
             if (!TryBounce())
