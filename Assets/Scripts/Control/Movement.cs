@@ -126,6 +126,7 @@ namespace Oiva.Control
             _currentMaxSpeed = _initialMaxSpeed;
         }
 
+
         private void SpawnSpeedEffectVFX()
         {
             if (_buffVfx == null || _vfxSpawnPoint == null) return;

@@ -53,10 +53,10 @@ namespace Oiva.Discovery
         {
             Carrying carrying = playerController.transform.GetComponent<Carrying>();
 
-
+            Debug.Log("Player tries to interact with scooter");
             if (!IsInteractable(playerController)) return false;
 
-            if (!TryBounce(playerController))
+            if (!TryBounce())
             {
                 _owner = playerController.transform;
                 carrying.PickUp(this);
@@ -69,10 +69,8 @@ namespace Oiva.Discovery
         {
             float distanceToPlayer = Vector3.Distance(playerController.transform.position, transform.position);
             Carrying carrying = playerController.transform.GetComponent<Carrying>();
-            bool isStill = playerController.GetComponent<Movement>().IsStill();
 
             if (distanceToPlayer <= _maxPickupDistance &&
-                isStill &&
                 carrying.CurrentScooter == null &&
                 !_isParked)
             {
@@ -90,7 +88,7 @@ namespace Oiva.Discovery
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
-        private bool TryBounce(PlayerController playerController)
+        private bool TryBounce()
         {
             int currentBounceAttempt = Random.Range(1, 101);
             Rigidbody rb = GetComponent<Rigidbody>();
