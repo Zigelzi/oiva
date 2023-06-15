@@ -7,7 +7,6 @@ namespace Oiva.Discovery
     {
         [SerializeField] GameObject _scooterPrefab;
         [SerializeField] Transform _spawnPosition;
-        [SerializeField] float _maxInteractionDistance = 3.2f;
 
         bool _hasSpawnedScooter = false;
 
@@ -23,24 +22,14 @@ namespace Oiva.Discovery
 
         public bool HandleRaycast(PlayerController playerController)
         {
-            float distanceToPlayer = Vector3.Distance(playerController.transform.position, transform.position);
-
             bool isStill = playerController.GetComponent<Movement>().IsStill();
-            if (distanceToPlayer <= _maxInteractionDistance &&
-                isStill &&
+            if (isStill &&
                 !_hasSpawnedScooter)
             {
                 SpawnScooter();
                 return true;
             }
             return false;
-        }
-
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.blue;
-            Vector3 cubeSize = new Vector3(_maxInteractionDistance, _maxInteractionDistance, _maxInteractionDistance);
-            Gizmos.DrawWireCube(transform.position, cubeSize);
         }
     }
 }

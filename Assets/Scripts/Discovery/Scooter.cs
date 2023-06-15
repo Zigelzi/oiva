@@ -6,8 +6,6 @@ namespace Oiva.Discovery
     public class Scooter : MonoBehaviour, IRaycastable
     {
         [SerializeField] Vector3 _followOffset;
-        [SerializeField] float _maxPickupDistance = 2.5f;
-
 
         [SerializeField]
         [Range(1, 100)] int _bounceProbability = 20;
@@ -66,11 +64,9 @@ namespace Oiva.Discovery
 
         private bool IsInteractable(PlayerController playerController)
         {
-            float distanceToPlayer = Vector3.Distance(playerController.transform.position, transform.position);
             Carrying carrying = playerController.transform.GetComponent<Carrying>();
 
-            if (distanceToPlayer <= _maxPickupDistance &&
-                carrying.CurrentScooter == null &&
+            if (carrying.CurrentScooter == null &&
                 !_isParked)
             {
                 return true;
@@ -100,12 +96,6 @@ namespace Oiva.Discovery
                 return true;
             }
             return false;
-        }
-
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, _maxPickupDistance);
         }
     }
 
