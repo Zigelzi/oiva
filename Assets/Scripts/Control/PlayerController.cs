@@ -6,7 +6,7 @@ namespace Oiva.Control
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] float _interactionRadius = .5f;
+        [SerializeField] float _interactionRadius = 2f;
 
         private void OnEnable()
         {
@@ -48,6 +48,12 @@ namespace Oiva.Control
             Ray ray = Camera.main.ScreenPointToRay(position);
 
             return ray;
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, _interactionRadius);
         }
     }
 }
