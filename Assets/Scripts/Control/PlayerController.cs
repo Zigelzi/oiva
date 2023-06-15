@@ -26,14 +26,14 @@ namespace Oiva.Control
         {
 
             RaycastHit[] hits = Physics.SphereCastAll(GetTouchRay(finger.currentTouch.screenPosition), _interactionRadius);
-            float distanceToTarget = 0;
 
             foreach (RaycastHit hit in hits)
             {
+
                 IRaycastable[] raycastables = hit.transform.GetComponents<IRaycastable>();
                 foreach (IRaycastable raycastable in raycastables)
                 {
-                    distanceToTarget = Vector3.Distance(transform.position, raycastable.transform.position);
+                    float distanceToTarget = Vector3.Distance(transform.position, raycastable.transform.position);
 
                     if (distanceToTarget > _interactionRadius) return;
 
