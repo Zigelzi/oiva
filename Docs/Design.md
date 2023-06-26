@@ -4,8 +4,17 @@ Random notes and thoughts about the game and it's design.
 
 ## Player experience
 
-Sense of surprise. Player should feel the joy of discovering scooters and powerups from various places.
-Restore the order. Player should feel that they're making a the city a better place for other people by parking the scooters.
+### Sense of surprise
+
+Player should feel the joy of discovering scooters and powerups from various places.
+
+### Helpful
+
+Player should feel that they're helping others by collecting the scooters.
+
+### Organizing
+
+Player should feel that they're restoring order to the block.
 
 ## Problems
 
@@ -14,6 +23,9 @@ Currently observed problems in the gameplay, that need to be solved.
 1. Players feel that parking scooters isn't rewarding.
 2. Players don't understand that they need to interact with hideout.
 3. Players spend long time seaching for where they need to park the scooters.
+4. Picking up multiple scooters from one pile is very slow paced.
+5. Player isn't able to control the character effectively with speed boost.
+6. Player doesn't get feedback from which objects they can interact with.
 
 ## Player knowledge
 
@@ -56,6 +68,14 @@ What discoveries the player make during the gameplay?
 1. Parking a scooter
 
 ### Reward
+
+Rewards are split into three layers from smallest to largest: Moment, Level and Game.
+
+#### Game
+
+1. I can get to collect scooters in more complex levels!
+
+#### Momment
 
 1. Possiblity to restore energy
 2. Possibility to move faster

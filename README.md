@@ -40,43 +40,7 @@ How mechanics are introduced to the player.
 
 ### Gameplay
 
-- [x] Player can't exit the play area
-- [x] Player can pick up a scooter
-- [x] Player can move with the scooter
-- [x] Player can deliver the scooter
-- [x] Camera follows the player
-- [x] Player needs to deliver multiple scooters to finish the level
-- [ ] Player can get visual reward when delivering scooter
 - [ ] Scooters aren't positioned correctly when carried
-
-### Challenge
-
-- [x] Player consumes energy when moving
-- [ ] Player consumes additional energy when carrying scooter
-- [x] Player is slowed down when carrying a scooter
-
-### Discovery & surprise
-
-- [x] Player can get hint of hideout
-- [ ] Scooters fly out from the hideout
-- [ ] Player can zoom out to view the big picture
-- [ ] Player can zoom in to look for the details
-- [ ] Misc items fly from hideout when searched
-- [ ] Pickups fly from hideout when searched
-- [ ] Player gets buff after delivering scooter
-  - [x] Speed boost
-  - [ ] Additional carry capacity
-  - [ ] Hint
-  - [ ] Restore energy
-- [ ] Player can interact with misc objects
-- [ ] Player can see indicator displaying proximity to scooters
-- [ ] Player can get movement speed pickup when parking a scooter
-- [ ] Player can get energy pickup when parking a scooter
-- [ ] Player can get super-carrying pickup when parking scooter
-
-### Scenes
-
-- [x] Player can advance to next level when successfully parking all scooters
 - [ ] Success scene is displyed after a short delay
 - [ ] Create level introducing the energy mechanic
 - [ ] Create level introducing hideout mechanic properly
@@ -87,4 +51,4 @@ How mechanics are introduced to the player.
 - [x] All scooters are placed into the same position
 - [x] Player can carry multiple scooter at once
 - [x] Player slides in the beginning of second level in built version
-- [ ]
+- [ ] Player can't interact with scooters near other interactable objects
