@@ -33,38 +33,27 @@ namespace Oiva.Control
 
         private void TryInteract(InputAction.CallbackContext context)
         {
-            RaycastHit[] hits = Physics.SphereCastAll(transform.position, _interactionRadius, Vector3.up, _interactionRadius);
-            float[] distanceFromHit = new float[hits.Length];
+            Collider[] colliders = Physics.OverlapSphere(transform.position, _interactionRadius);
+            float[] distanceFromCollider = new float[colliders.Length];
 
-            for (int i = 0; i < hits.Length; i++)
+            for (int i = 0; i < colliders.Length; i++)
             {
-                distanceFromHit[i] = hits[i].distance;
+                distanceFromCollider[i] = Vector3.Distance(transform.position, colliders[i].transform.position);
             }
 
+            Collider[] sortedColliders = colliders;
+            Array.Sort(distanceFromCollider, sortedColliders);
 
-
-            RaycastHit[] sortedHits = hits;
-            Debug.Log("Before sort:");
-            foreach (RaycastHit hit in sortedHits)
+            foreach (Collider collider in sortedColliders)
             {
-                Debug.Log($"{hit.collider.transform.name}");
-            }
-            Array.Sort(distanceFromHit, sortedHits);
+                IRaycastable interactable = collider.GetComponent<IRaycastable>();
+                if (interactable == null) continue;
 
-            Debug.Log("After sort:");
+                // Only interact with the closest interactable and that can be interacted with.
+                if (interactable != null && interactable.HandleRaycast(this)) break;
 
-            foreach (RaycastHit hit in sortedHits)
-            {
-                Debug.Log($"{hit.collider.transform.name}");
             }
-            foreach (RaycastHit hit in sortedHits)
-            {
-                IRaycastable[] interactables = hit.transform.GetComponents<IRaycastable>();
-                foreach (IRaycastable interactable in interactables)
-                {
-                    interactable.HandleRaycast(this);
-                }
-            }
+
         }
 
         private static Ray GetTouchRay(Vector2 position)
