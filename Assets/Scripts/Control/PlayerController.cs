@@ -1,6 +1,6 @@
+using System;
 using UnityEngine;
-using UnityEngine.InputSystem.EnhancedTouch;
-using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
+using UnityEngine.InputSystem;
 
 namespace Oiva.Control
 {
@@ -8,43 +8,63 @@ namespace Oiva.Control
     {
         [SerializeField] float _interactionRadius = 2f;
 
+        PlayerInputActions _playerInputActions;
+        InputAction _interactAction;
+
+        private void Awake()
+        {
+            _playerInputActions = new PlayerInputActions();
+        }
         private void OnEnable()
         {
-            EnhancedTouchSupport.Enable();
+            _interactAction = _playerInputActions.Player.Interact;
 
-            Touch.onFingerDown += InteractWithComponent;
+            _interactAction.Enable();
+
+            _interactAction.performed += TryInteract;
         }
 
         private void OnDisable()
         {
-            Touch.onFingerDown -= InteractWithComponent;
+            _interactAction.performed -= TryInteract;
 
-            EnhancedTouchSupport.Disable();
+            _interactAction.Disable();
         }
 
-        private void InteractWithComponent(Finger finger)
+        private void TryInteract(InputAction.CallbackContext context)
         {
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position, _interactionRadius, Vector3.up, _interactionRadius);
+            float[] distanceFromHit = new float[hits.Length];
 
-            RaycastHit[] hits = Physics.SphereCastAll(GetTouchRay(finger.currentTouch.screenPosition), _interactionRadius);
-
-            foreach (RaycastHit hit in hits)
+            for (int i = 0; i < hits.Length; i++)
             {
-
-                IRaycastable[] raycastables = hit.transform.GetComponents<IRaycastable>();
-                foreach (IRaycastable raycastable in raycastables)
-                {
-                    float distanceToTarget = Vector3.Distance(transform.position, raycastable.transform.position);
-
-                    if (distanceToTarget > _interactionRadius) return;
-
-                    if (raycastable.HandleRaycast(this))
-                    {
-                        return;
-                    }
-                }
+                distanceFromHit[i] = hits[i].distance;
             }
 
-            return;
+
+
+            RaycastHit[] sortedHits = hits;
+            Debug.Log("Before sort:");
+            foreach (RaycastHit hit in sortedHits)
+            {
+                Debug.Log($"{hit.collider.transform.name}");
+            }
+            Array.Sort(distanceFromHit, sortedHits);
+
+            Debug.Log("After sort:");
+
+            foreach (RaycastHit hit in sortedHits)
+            {
+                Debug.Log($"{hit.collider.transform.name}");
+            }
+            foreach (RaycastHit hit in sortedHits)
+            {
+                IRaycastable[] interactables = hit.transform.GetComponents<IRaycastable>();
+                foreach (IRaycastable interactable in interactables)
+                {
+                    interactable.HandleRaycast(this);
+                }
+            }
         }
 
         private static Ray GetTouchRay(Vector2 position)
