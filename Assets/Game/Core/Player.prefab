@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 7468454428627368171}
   - component: {fileID: 7614631950374544797}
   - component: {fileID: 5754296827734803861}
+  - component: {fileID: 7631311082698847604}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -226,6 +227,21 @@ MonoBehaviour:
   onEnergyExhausted:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7631311082698847604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6338125710304457518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 666c6c0a67088cd44be5e430402e2df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pickupStatuses:
+  - {fileID: 11400000, guid: 8a94f42943e00e743a6c416cb6e0d442, type: 2}
+  _parkStatuses: []
 --- !u!1 &6338125710948056848
 GameObject:
   m_ObjectHideFlags: 0

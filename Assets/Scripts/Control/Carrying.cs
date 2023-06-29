@@ -1,4 +1,5 @@
 using Oiva.Discovery;
+using Oiva.Status;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +12,7 @@ namespace Oiva.Control
 
         ParticleSystem _vfxParticleSystem;
         Scooter _currentScooter;
+        StatusManager _statusManager;
 
         public UnityEvent onScooterParked;
         public Scooter CurrentScooter { get { return _currentScooter; } }
@@ -21,6 +23,7 @@ namespace Oiva.Control
         private void Awake()
         {
             _movement = GetComponent<Movement>();
+            _statusManager = GetComponent<StatusManager>();
 
             if (_carryVfx == null) return;
 
@@ -42,6 +45,7 @@ namespace Oiva.Control
             _currentScooter = newScooter;
             _movement.ReduceMovementSpeed(_movementPenalty);
             ToggleVFX();
+            _statusManager.ApplyPickupStatuses();
         }
 
         private void Park(ParkingSpot parkingSpot)
@@ -54,6 +58,7 @@ namespace Oiva.Control
             _movement.RestoreDefaultMovementSpeed();
             onScooterParked?.Invoke();
             ToggleVFX();
+            _statusManager.ApplyParkingStatuses();
         }
 
         private void ToggleVFX()
