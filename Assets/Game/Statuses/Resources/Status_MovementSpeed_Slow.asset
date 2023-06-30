@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 431d0fb46f68055499b38f4f05707a89, type: 3}
-  m_Name: Status_MovementSpeed
+  m_Name: Status_MovementSpeed_Slow
   m_EditorClassIdentifier: 
   _effectStrategies:
-  - {fileID: 11400000, guid: 99842199c8c80d944a7c32a1b110fd0a, type: 2}
+  - {fileID: 11400000, guid: d630faeba98fec1478655c0510b81a9a, type: 2}

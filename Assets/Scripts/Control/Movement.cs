@@ -28,7 +28,6 @@ namespace Oiva.Control
         [SerializeField] float _additionalSpeed = 3f;
         [SerializeField] GameObject _buffVfx;
         [SerializeField] Transform _vfxSpawnPoint;
-        Carrying _carrying;
         Coroutine _currentMovementEffect;
         GameObject _currentBuffVfx;
 
@@ -37,7 +36,6 @@ namespace Oiva.Control
         {
             _currentMaxSpeed = _initialMaxSpeed;
 
-            _carrying = GetComponent<Carrying>();
             _energy = GetComponent<Energy>();
             _playerInputActions = new PlayerInputActions();
             _playerAnimator = GetComponent<Animator>();
@@ -50,7 +48,6 @@ namespace Oiva.Control
             _movementInput = _playerInputActions.Player.Move;
             _movementInput.Enable();
 
-            _carrying.onScooterParked.AddListener(AddMoveSpeed);
             _energy.onEnergyExhausted.AddListener(DisableMovement);
             _parkingSpot.onAllScootersParked.AddListener(DisableMovement);
         }
@@ -76,7 +73,6 @@ namespace Oiva.Control
         {
             _movementInput.Disable();
 
-            _carrying.onScooterParked.RemoveListener(AddMoveSpeed);
             _energy.onEnergyExhausted.RemoveListener(DisableMovement);
             _parkingSpot.onAllScootersParked.RemoveListener(DisableMovement);
         }
@@ -93,9 +89,9 @@ namespace Oiva.Control
             return false;
         }
 
-        public void ReduceMovementSpeed(float amount)
+        public void ChangeMovementSpeedPermanently(float amount)
         {
-            _currentMaxSpeed -= amount;
+            _currentMaxSpeed += amount;
         }
 
         public void RestoreDefaultMovementSpeed()
@@ -103,21 +99,21 @@ namespace Oiva.Control
             _currentMaxSpeed = _initialMaxSpeed;
         }
 
-        private void AddMoveSpeed()
+        public void ChangeMovementSpeedTemporarily(float additionalSpeedAmount, float duration)
         {
             if (_currentMovementEffect != null)
             {
                 StopCoroutine(_currentMovementEffect);
             }
-            _currentMovementEffect = StartCoroutine(GrantMoveSpeedEffect());
+            _currentMovementEffect = StartCoroutine(GrantMoveSpeedEffect(additionalSpeedAmount, duration));
             SpawnSpeedEffectVFX();
         }
 
-        private IEnumerator GrantMoveSpeedEffect()
+        private IEnumerator GrantMoveSpeedEffect(float additionalSpeedAmount, float duration)
         {
-            float durationRemaining = _buffDuration;
+            float durationRemaining = duration;
 
-            _currentMaxSpeed = _initialMaxSpeed + _additionalSpeed;
+            _currentMaxSpeed = _initialMaxSpeed + additionalSpeedAmount;
             while (durationRemaining >= 0)
             {
                 durationRemaining -= Time.deltaTime;

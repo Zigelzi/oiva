@@ -170,7 +170,7 @@ MonoBehaviour:
   _speed: 90
   _initialMaxSpeed: 6
   _movementTolerance: 0.2
-  _buffDuration: 5
+  _buffDuration: 3
   _additionalSpeed: 3
   _buffVfx: {fileID: 5092764966324979708, guid: edfcd88ad303fe94d9f3682a33c76025,
     type: 3}
@@ -240,8 +240,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pickupStatuses:
+  - {fileID: 11400000, guid: ea506d45edf732f4f8a5b8b14cc91b56, type: 2}
+  _parkStatuses:
   - {fileID: 11400000, guid: 8a94f42943e00e743a6c416cb6e0d442, type: 2}
-  _parkStatuses: []
 --- !u!1 &6338125710948056848
 GameObject:
   m_ObjectHideFlags: 0
