@@ -43,7 +43,6 @@ namespace Oiva.Control
         {
             if (_currentScooter != null) return;
             _currentScooter = newScooter;
-            _movement.ReduceMovementSpeed(_movementPenalty);
             ToggleVFX();
             _statusManager.ApplyPickupStatuses();
         }
@@ -55,7 +54,6 @@ namespace Oiva.Control
             parkingSpot.Add(_currentScooter);
             _currentScooter.Park();
             _currentScooter = null;
-            _movement.RestoreDefaultMovementSpeed();
             onScooterParked?.Invoke();
             ToggleVFX();
             _statusManager.ApplyParkingStatuses();

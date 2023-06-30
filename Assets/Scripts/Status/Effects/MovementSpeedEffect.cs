@@ -1,3 +1,4 @@
+using Oiva.Control;
 using UnityEngine;
 
 namespace Oiva.Status
@@ -6,9 +7,20 @@ namespace Oiva.Status
     public class MovementSpeedEffect : EffectStrategy
     {
         [SerializeField] float _movementSpeedChange = 5f;
-        public override void StartEffect()
+        public override void StartEffect(GameObject user)
         {
-            Debug.Log("Starting movement speed effect!");
+            if (user.TryGetComponent<Movement>(out Movement movement))
+            {
+                movement.ReduceMovementSpeed(_movementSpeedChange);
+            }
+        }
+
+        public override void ClearEffect(GameObject user)
+        {
+            if (user.TryGetComponent<Movement>(out Movement movement))
+            {
+                movement.RestoreDefaultMovementSpeed();
+            }
         }
     }
 }
