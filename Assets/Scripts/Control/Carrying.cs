@@ -17,12 +17,9 @@ namespace Oiva.Control
         public UnityEvent onScooterParked;
         public Scooter CurrentScooter { get { return _currentScooter; } }
 
-        // Prototyping
-        Movement _movement;
 
         private void Awake()
         {
-            _movement = GetComponent<Movement>();
             _statusManager = GetComponent<StatusManager>();
 
             if (_carryVfx == null) return;

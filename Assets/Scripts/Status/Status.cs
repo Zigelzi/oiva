@@ -7,19 +7,19 @@ namespace Oiva.Status
     {
         [SerializeField] EffectStrategy[] _effectStrategies;
 
-        public void Apply(GameObject user)
+        public void Apply(StatusData status)
         {
             foreach (EffectStrategy effect in _effectStrategies)
             {
-                effect.StartEffect(user);
+                effect.StartEffect(status);
             }
         }
 
-        public void Clear(GameObject user)
+        public void Clear(StatusData status)
         {
             foreach (EffectStrategy effect in _effectStrategies)
             {
-                effect.ClearEffect(user);
+                effect.ClearEffect(status);
             }
         }
     }

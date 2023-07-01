@@ -10,7 +10,8 @@ namespace Oiva.Status
         {
             foreach (Status status in _pickupStatuses)
             {
-                status.Apply(gameObject);
+                StatusData statusData = new StatusData(this.gameObject);
+                status.Apply(statusData);
             }
         }
 
@@ -18,11 +19,13 @@ namespace Oiva.Status
         {
             foreach (Status pickupStatus in _pickupStatuses)
             {
-                pickupStatus.Clear(gameObject);
+                StatusData statusData = new StatusData(this.gameObject);
+                pickupStatus.Clear(statusData);
             }
             foreach (Status status in _parkStatuses)
             {
-                status.Apply(gameObject);
+                StatusData statusData = new StatusData(this.gameObject);
+                status.Apply(statusData);
             }
 
         }

@@ -9,9 +9,9 @@ namespace Oiva.Status
         [SerializeField] float _movementSpeedChange = 5f;
         [SerializeField] float _duration = 0;
 
-        public override void StartEffect(GameObject user)
+        public override void StartEffect(StatusData status)
         {
-            Movement movement = user.GetComponent<Movement>();
+            Movement movement = status.Owner.GetComponent<Movement>();
             if (movement == null) return;
 
             if (_duration > 0)
@@ -24,9 +24,9 @@ namespace Oiva.Status
             }
         }
 
-        public override void ClearEffect(GameObject user)
+        public override void ClearEffect(StatusData status)
         {
-            if (user.TryGetComponent<Movement>(out Movement movement))
+            if (status.Owner.TryGetComponent<Movement>(out Movement movement))
             {
                 movement.RestoreDefaultMovementSpeed();
             }
