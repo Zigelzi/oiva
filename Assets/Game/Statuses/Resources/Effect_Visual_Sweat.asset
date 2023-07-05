@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 431d0fb46f68055499b38f4f05707a89, type: 3}
-  m_Name: Status_MovementSpeed_Slow
+  m_Script: {fileID: 11500000, guid: 265c341da7487ca4eafdd24a131f7b8f, type: 3}
+  m_Name: Effect_Visual_Sweat
   m_EditorClassIdentifier: 
-  _effectStrategies:
-  - {fileID: 11400000, guid: d630faeba98fec1478655c0510b81a9a, type: 2}
-  - {fileID: 11400000, guid: 7f5f3e0e0cb1c7b418bec7c803a404fb, type: 2}
+  vfxPrefab: {fileID: 3962442224959484492, guid: 6589a877ff6ded843a7eb94b08326fcd,
+    type: 3}
