@@ -6,9 +6,18 @@ namespace Oiva.Status
     public class VisualEffect : EffectStrategy
     {
         [SerializeField] GameObject vfxPrefab;
+        [SerializeField] bool isSpawnedAtHead = false;
         public override void StartEffect(StatusData status)
         {
-            Instantiate(vfxPrefab, status.HeadCastPoint);
+            if (isSpawnedAtHead)
+            {
+                Instantiate(vfxPrefab, status.HeadCastPoint);
+
+            }
+            else
+            {
+                Instantiate(vfxPrefab, status.FeetCastPoint);
+            }
         }
 
         public override void ClearEffect(StatusData status)
