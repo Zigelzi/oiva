@@ -9,14 +9,13 @@ namespace Oiva.Status
         [SerializeField] bool isSpawnedAtHead = false;
         public override void StartEffect(StatusData status)
         {
-            if (isSpawnedAtHead)
+            if (status.Duration == 0)
             {
-                Instantiate(vfxPrefab, status.HeadCastPoint);
-
+                SpawnEffect(status);
             }
             else
             {
-                Instantiate(vfxPrefab, status.FeetCastPoint);
+                SpawnTemporaryEffect(status);
             }
         }
 
@@ -28,6 +27,30 @@ namespace Oiva.Status
             {
                 vfx.DestroyEffect(0);
             }
+        }
+
+        private GameObject SpawnEffect(StatusData status)
+        {
+            if (isSpawnedAtHead)
+            {
+                return Instantiate(vfxPrefab, status.HeadCastPoint);
+            }
+            else
+            {
+                return Instantiate(vfxPrefab, status.FeetCastPoint);
+            }
+        }
+
+        private void SpawnTemporaryEffect(StatusData status)
+        {
+            StatusManager statusManager = status.Owner.GetComponent<StatusManager>();
+            if (statusManager.CurrentStatusVfx != null)
+            {
+                Destroy(statusManager.CurrentStatusVfx);
+            }
+
+            statusManager.CurrentStatusVfx = SpawnEffect(status);
+            Destroy(statusManager.CurrentStatusVfx, status.Duration);
         }
     }
 }

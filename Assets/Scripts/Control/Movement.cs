@@ -12,6 +12,7 @@ namespace Oiva.Control
         [SerializeField] float _movementTolerance = .2f;
 
         float _currentMaxSpeed = -1f;
+        Coroutine _currentMovementEffect;
         Energy _energy;
         ParkingSpot _parkingSpot;
         PlayerInputActions _playerInputActions;
@@ -22,14 +23,6 @@ namespace Oiva.Control
         Vector3 _inputValue = Vector3.zero;
         Vector3 _movementForce = Vector3.zero;
 
-        // Prototyping effects
-        // Refactor these to use strategy pattern if useful
-        [SerializeField] float _buffDuration = 5f;
-        [SerializeField] float _additionalSpeed = 3f;
-        [SerializeField] GameObject _buffVfx;
-        [SerializeField] Transform _vfxSpawnPoint;
-        Coroutine _currentMovementEffect;
-        GameObject _currentBuffVfx;
 
 
         private void Awake()
@@ -106,7 +99,6 @@ namespace Oiva.Control
                 StopCoroutine(_currentMovementEffect);
             }
             _currentMovementEffect = StartCoroutine(GrantMoveSpeedEffect(additionalSpeedAmount, duration));
-            SpawnSpeedEffectVFX();
         }
 
         private IEnumerator GrantMoveSpeedEffect(float additionalSpeedAmount, float duration)
@@ -120,20 +112,6 @@ namespace Oiva.Control
                 yield return null;
             }
             _currentMaxSpeed = _initialMaxSpeed;
-        }
-
-
-        private void SpawnSpeedEffectVFX()
-        {
-            if (_buffVfx == null || _vfxSpawnPoint == null) return;
-
-            if (_currentBuffVfx != null)
-            {
-                Destroy(_currentBuffVfx);
-            }
-            _currentBuffVfx = Instantiate(_buffVfx, _vfxSpawnPoint);
-            Destroy(_currentBuffVfx, _buffDuration);
-
         }
 
         private void DisableMovement()

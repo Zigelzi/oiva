@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 265c341da7487ca4eafdd24a131f7b8f, type: 3}
-  m_Name: Effect_Visual_Sweat
+  m_Name: Effect_Visual_Fire
   m_EditorClassIdentifier: 
-  vfxPrefab: {fileID: 3962442224959484492, guid: 6589a877ff6ded843a7eb94b08326fcd,
+  vfxPrefab: {fileID: 5092764966324979708, guid: edfcd88ad303fe94d9f3682a33c76025,
     type: 3}
-  isSpawnedAtHead: 1
+  isSpawnedAtHead: 0
