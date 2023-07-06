@@ -7,16 +7,15 @@ namespace Oiva.Status
     public class MovementSpeedEffect : EffectStrategy
     {
         [SerializeField] float _movementSpeedChange = 5f;
-        [SerializeField] float _duration = 0;
 
         public override void StartEffect(StatusData status)
         {
             Movement movement = status.Owner.GetComponent<Movement>();
             if (movement == null) return;
 
-            if (_duration > 0)
+            if (status.Duration > 0)
             {
-                movement.ChangeMovementSpeedTemporarily(_movementSpeedChange, _duration);
+                movement.ChangeMovementSpeedTemporarily(_movementSpeedChange, status.Duration);
             }
             else
             {
