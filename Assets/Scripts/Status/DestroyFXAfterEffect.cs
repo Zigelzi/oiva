@@ -19,6 +19,12 @@ namespace Oiva.Status
             StartCoroutine(DestroyFinishedFXWithChildren(waitTime));
         }
 
+        public void DestroyEffectAfterDelay(float delay)
+        {
+            StartCoroutine(DestoryFinishedFX(delay));
+        }
+
+
         private void GetChildParticles()
         {
             ParticleSystem[] particles = transform.GetComponentsInChildren<ParticleSystem>();
@@ -39,6 +45,20 @@ namespace Oiva.Status
                     DisableFinishedParticle(vfx);
                 }
                 yield return new WaitForSeconds(waitTime);
+            }
+            Destroy(gameObject);
+        }
+
+        private IEnumerator DestoryFinishedFX(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            while (aliveParticles.Count > 0)
+            {
+                foreach (ParticleSystem vfx in childParticles)
+                {
+                    DisableFinishedParticle(vfx);
+                }
+                yield return null;
             }
             Destroy(gameObject);
         }

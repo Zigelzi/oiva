@@ -50,7 +50,12 @@ namespace Oiva.Status
             }
 
             statusManager.CurrentStatusVfx = SpawnEffect(status);
-            Destroy(statusManager.CurrentStatusVfx, status.Duration);
+            DestroyFXAfterEffect[] visualEffects = statusManager.CurrentStatusVfx.GetComponents<DestroyFXAfterEffect>();
+
+            foreach (DestroyFXAfterEffect vfx in visualEffects)
+            {
+                vfx.DestroyEffectAfterDelay(status.Duration);
+            }
         }
     }
 }
