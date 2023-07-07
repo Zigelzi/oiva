@@ -1,3 +1,4 @@
+using Oiva.Control;
 using UnityEngine;
 
 namespace Oiva.Status
@@ -9,12 +10,20 @@ namespace Oiva.Status
 
         public override void StartEffect(StatusData status)
         {
+            Energy energy = status.Owner.GetComponent<Energy>();
 
+            if (energy == null) return;
+
+            energy.StopEnergyConsumptionTemporarily(status.Duration);
         }
 
         public override void ClearEffect(StatusData status)
         {
+            Energy energy = status.Owner.GetComponent<Energy>();
 
+            if (energy == null) return;
+
+            energy.RestoreDefaultEnergyConsumption();
         }
     }
 }
