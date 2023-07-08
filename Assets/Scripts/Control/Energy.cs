@@ -52,6 +52,11 @@ namespace Oiva.Control
             _currentEnergyEffect = StartCoroutine(StopEnergyConsumption(duration));
         }
 
+        public void ChangeEnergyConsumptionPermanently(float amount)
+        {
+            _currentEnergyConsumption += amount;
+        }
+
         public void RestoreDefaultEnergyConsumption()
         {
             _currentEnergyConsumption = _initialEnergyConsumption;

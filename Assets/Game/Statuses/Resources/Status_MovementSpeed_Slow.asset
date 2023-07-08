@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431d0fb46f68055499b38f4f05707a89, type: 3}
   m_Name: Status_MovementSpeed_Slow
   m_EditorClassIdentifier: 
+  _duration: 0
   _effectStrategies:
   - {fileID: 11400000, guid: d630faeba98fec1478655c0510b81a9a, type: 2}
   - {fileID: 11400000, guid: 7f5f3e0e0cb1c7b418bec7c803a404fb, type: 2}
+  - {fileID: 11400000, guid: 6bb735b9f754a3c4c8b1112390b84f53, type: 2}
