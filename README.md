@@ -51,4 +51,4 @@ How mechanics are introduced to the player.
 - [x] All scooters are placed into the same position
 - [x] Player can carry multiple scooter at once
 - [x] Player slides in the beginning of second level in built version
-- [ ] Player can't interact with scooters near other interactable objects
+- [x] Player can't interact with scooters near other interactable objects

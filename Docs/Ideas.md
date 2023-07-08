@@ -46,11 +46,12 @@ How might I make player feel that they're doing strategic decisions during the g
   - [ ] Move with reduced effort (speed & energy)
 - [ ] Player can zoom out to view the big picture
 - [ ] Player can zoom in to look for the details
-- [ ] Player gets buff after delivering scooter
+- [ ] Player gets beneficial status after delivering scooter
   - [x] Speed boost
   - [ ] Additional carry capacity
   - [ ] Hint
-  - [ ] Restore energy
+  - [x] Restore energy
+- [ ] Player needs to select which beneficial status they get
 - [ ] Player is introduced to the level when level begins
 
 ## Feedback
