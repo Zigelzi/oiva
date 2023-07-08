@@ -14,7 +14,9 @@ namespace Oiva.Control
         [SerializeField] float _movementTolerance = .2f;
 
         float _currentEnergyConsumption = -1f;
-        Coroutine _currentEnergyEffect;
+        float _storedEnergyChange = 0;
+        bool _isEnergyReductionActive = false;
+        Coroutine _currentEnergyReductionEffect;
         Rigidbody _rb;
 
         public EnergyChange onEnergyChange;
@@ -45,16 +47,17 @@ namespace Oiva.Control
 
         public void StopEnergyConsumptionTemporarily(float duration)
         {
-            if (_currentEnergyEffect != null)
+            if (_currentEnergyReductionEffect != null)
             {
-                StopCoroutine(_currentEnergyEffect);
+                StopCoroutine(_currentEnergyReductionEffect);
             }
-            _currentEnergyEffect = StartCoroutine(StopEnergyConsumption(duration));
+            _currentEnergyReductionEffect = StartCoroutine(StopEnergyConsumption(duration));
         }
 
         public void ChangeEnergyConsumptionPermanently(float amount)
         {
-            _currentEnergyConsumption += amount;
+            _storedEnergyChange = amount;
+            _currentEnergyConsumption = AdjustEnergyConsumption();
         }
 
         public void RestoreDefaultEnergyConsumption()
@@ -65,14 +68,36 @@ namespace Oiva.Control
         private IEnumerator StopEnergyConsumption(float duration)
         {
             float durationRemaining = duration;
+            _isEnergyReductionActive = true;
 
-            _currentEnergyConsumption = 0;
+            _currentEnergyConsumption = AdjustEnergyConsumption();
             while (durationRemaining >= 0)
             {
                 durationRemaining -= Time.deltaTime;
                 yield return null;
             }
-            _currentEnergyConsumption = _initialEnergyConsumption;
+            _isEnergyReductionActive = false;
+            _currentEnergyConsumption = AdjustEnergyConsumption();
+        }
+
+        private float AdjustEnergyConsumption()
+        {
+            float energyChange = _storedEnergyChange;
+
+            if (_isEnergyReductionActive)
+            {
+                return 0;
+            }
+            else if (energyChange > 0)
+            {
+                _storedEnergyChange = 0;
+                return _initialEnergyConsumption + energyChange;
+            }
+            else
+            {
+                return _initialEnergyConsumption;
+            }
+
         }
 
         private void Consume()
