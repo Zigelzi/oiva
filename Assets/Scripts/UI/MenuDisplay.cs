@@ -18,8 +18,8 @@ namespace Oiva.UI
             _parkingSpot = GameObject.FindGameObjectWithTag("Parking_Spot").GetComponent<ParkingSpot>();
             _energy = GameObject.FindGameObjectWithTag("Player").GetComponent<Energy>();
             ToggleMenu(false);
-            ToggleWinSection(false);
-            ToggleDefeatSection(false);
+            ToggleWinSection(true);
+            ToggleDefeatSection(true);
         }
 
         private void OnEnable()
@@ -38,13 +38,15 @@ namespace Oiva.UI
         private void DisplayWinMenu()
         {
             ToggleMenu(true);
+            ToggleDefeatSection(false);
             ToggleWinSection(true);
         }
 
-        private void DisplayDefeatMenu()
+        private void DisplayDefeatMenu(float totalEnergyConsumed)
         {
             ToggleMenu(true);
             ToggleDefeatSection(true);
+            ToggleWinSection(false);
         }
 
 

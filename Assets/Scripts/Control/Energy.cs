@@ -14,22 +14,28 @@ namespace Oiva.Control
         [SerializeField] float _movementTolerance = .2f;
 
         float _currentEnergyConsumption = -1f;
+        float _totalEnergyConsumed = 0f;
         float _storedEnergyChange = 0;
         bool _isEnergyReductionActive = false;
         Coroutine _currentEnergyReductionEffect;
         Rigidbody _rb;
 
         public EnergyChange onEnergyChange;
-        public UnityEvent onEnergyExhausted;
+        public EnergyExhausted onEnergyExhausted;
 
         [Serializable]
         public class EnergyChange : UnityEvent<float> { }
+
+        [Serializable]
+        public class EnergyExhausted : UnityEvent<float> { }
         public float CurrentEnergy { get { return _currentEnergy; } }
+        public float TotalEnergyConsumed { get { return _totalEnergyConsumed; } }
 
         private void Awake()
         {
             _currentEnergy = _maxEnergy;
             _currentEnergyConsumption = _initialEnergyConsumption;
+            _totalEnergyConsumed = 0f;
             _rb = GetComponent<Rigidbody>();
         }
 
@@ -41,7 +47,7 @@ namespace Oiva.Control
             {
                 _currentEnergy = 0;
                 onEnergyChange?.Invoke(_currentEnergy);
-                onEnergyExhausted?.Invoke();
+                onEnergyExhausted?.Invoke(_totalEnergyConsumed);
             }
         }
 
@@ -104,7 +110,9 @@ namespace Oiva.Control
         {
             if (_rb.velocity.sqrMagnitude > _movementTolerance)
             {
-                _currentEnergy -= _currentEnergyConsumption * Time.deltaTime;
+                float consumedEnergy = _currentEnergyConsumption * Time.deltaTime;
+                _currentEnergy -= consumedEnergy;
+                _totalEnergyConsumed += consumedEnergy;
                 onEnergyChange?.Invoke(_currentEnergy);
             }
         }

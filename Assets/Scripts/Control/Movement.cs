@@ -121,6 +121,13 @@ namespace Oiva.Control
             enabled = false;
         }
 
+        private void DisableMovement(float totalEnergyConsumed)
+        {
+            _rb.velocity = Vector3.zero;
+            UpdateAnimation();
+            enabled = false;
+        }
+
         private void GetInput()
         {
             _inputValue = new Vector3(_movementInput.ReadValue<Vector2>().x, 0, _movementInput.ReadValue<Vector2>().y);
