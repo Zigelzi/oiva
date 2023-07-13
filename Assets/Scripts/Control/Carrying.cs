@@ -29,6 +29,19 @@ namespace Oiva.Control
             }
         }
 
+        public bool TryRelease()
+        {
+            if (_currentScooter != null)
+            {
+                _currentScooter.SetOwner(null);
+                _currentScooter = null;
+                _statusManager.ClearPickupStatuses();
+                return true;
+            }
+
+            return false;
+        }
+
         public void PickUp(Scooter newScooter)
         {
             if (_currentScooter != null) return;

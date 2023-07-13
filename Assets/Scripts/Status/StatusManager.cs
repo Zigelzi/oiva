@@ -20,13 +20,19 @@ namespace Oiva.Status
 
         public void ApplyParkingStatuses()
         {
-            foreach (Status pickupStatus in _pickupStatuses)
-            {
-                pickupStatus.Clear(gameObject);
-            }
+            ClearPickupStatuses();
+
             foreach (Status status in _parkStatuses)
             {
                 status.Apply(gameObject);
+            }
+        }
+
+        public void ClearPickupStatuses()
+        {
+            foreach (Status pickupStatus in _pickupStatuses)
+            {
+                pickupStatus.Clear(gameObject);
             }
         }
     }

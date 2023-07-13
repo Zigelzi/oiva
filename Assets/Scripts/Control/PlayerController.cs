@@ -8,11 +8,13 @@ namespace Oiva.Control
     {
         [SerializeField] float _interactionRadius = 2f;
 
+        Carrying _carrying;
         PlayerInputActions _playerInputActions;
         InputAction _interactAction;
 
         private void Awake()
         {
+            _carrying = GetComponent<Carrying>();
             _playerInputActions = new PlayerInputActions();
         }
         private void OnEnable()
@@ -33,6 +35,8 @@ namespace Oiva.Control
 
         private void TryInteract(InputAction.CallbackContext context)
         {
+            if (_carrying.TryRelease()) return;
+
             Collider[] colliders = Physics.OverlapSphere(transform.position, _interactionRadius);
             float[] distanceFromCollider = new float[colliders.Length];
 
@@ -51,7 +55,6 @@ namespace Oiva.Control
 
                 // Only interact with the closest interactable and that can be interacted with.
                 if (interactable != null && interactable.HandleRaycast(this)) break;
-
             }
 
         }
