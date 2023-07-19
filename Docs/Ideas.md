@@ -35,8 +35,8 @@ How might I make player feel that they're restoring order to the world during th
 How might I make player feel that they're doing strategic decisions during the gameplay?
 
 - [ ] Player can use environment to move the scooter
-- [ ] Player can see the total amount of energy they've spent
-- [ ] Player can release the scooter they're carrying
+- [x] Player can see the total amount of energy they've spent
+- [x] Player can release the scooter they're carrying
 - [ ] Player can pick up misc item
 - [ ] Player can release the misc item they're carrying
 - [ ] Player can throw scooter
