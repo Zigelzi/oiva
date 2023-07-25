@@ -18,5 +18,15 @@ namespace Oiva.Commuter
 
             _navAgent.SetDestination(_destination.position);
         }
+
+        private void Update()
+        {
+            if (_navAgent.pathPending) return;
+            if (_navAgent.remainingDistance >= _navAgent.stoppingDistance && _navAgent.velocity.sqrMagnitude == 0f)
+            {
+                _navAgent.ResetPath();
+                _navAgent.SetDestination(_destination.position);
+            }
+        }
     }
 }
