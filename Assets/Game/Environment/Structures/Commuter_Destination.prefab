@@ -106,6 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 639488048718919590}
+  - component: {fileID: 4634027480239683382}
   m_Layer: 0
   m_Name: Commuter_Destination
   m_TagString: Untagged
@@ -129,6 +130,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4634027480239683382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639488048718919577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3dc0ed56e45d2045b8b4b84731125a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &639488048744949076
 GameObject:
   m_ObjectHideFlags: 0
