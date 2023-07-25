@@ -4,6 +4,14 @@ Random notes and thoughts about the game and it's design.
 
 ## Player experience
 
+### Goal
+
+Incorrectly parked scooters cause following problems:
+
+1. Blocked walkways, preventing people from moving in the city easily
+2. Blocked roads, preventing cars and public transport moving causing delays
+3.
+
 ### Sense of surprise
 
 Player should feel the joy of discovering scooters and powerups from various places.

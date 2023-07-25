@@ -106,8 +106,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 639488048718919590}
+  - component: {fileID: 6123365583497009141}
   m_Layer: 0
-  m_Name: Commuter_Waypoint
+  m_Name: Commuter_Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,6 +130,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6123365583497009141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639488048718919577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb7ddfd5b8acaf428b69f3b6a5d3e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _commuterPrefab: {fileID: 2698928219992990308, guid: 3dda652f35fa02242be39ff6aa479e2e,
+    type: 3}
 --- !u!1 &639488048744949076
 GameObject:
   m_ObjectHideFlags: 0
